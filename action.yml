@@ -1,0 +1,14 @@
+name: Action Docker Debug
+
+inputs:
+  github_token:
+    description: 'GitHub API Access Token.'
+    default: ${{ github.token }}
+    required: false
+  files:
+    description: files input
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
