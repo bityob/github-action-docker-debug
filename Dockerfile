@@ -19,9 +19,10 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
     echo 'echo "### Environment Variables ###"' >> /entrypoint.sh && \
     echo 'printenv | sort' >> /entrypoint.sh && \
     echo '' >> /entrypoint.sh && \
-    echo 'echo "### Mounts & Filesystem ###"' >> /entrypoint.sh && \
+    echo 'echo "### Mounts ###"' >> /entrypoint.sh && \
     echo 'mount' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
+    echo 'echo "### Files ###"' >> /entrypoint.sh && \
     echo 'ls -lah /' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
     echo 'ls -lah' >> /entrypoint.sh && \
@@ -30,11 +31,9 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
     echo 'ls -lah ${GITHUB_WORKSPACE}' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
-    echo 'tree .' >> /entrypoint.sh && \
+    echo 'tree . -a' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
-    echo 'tree /tmp' >> /entrypoint.sh && \
-    echo 'echo ""' >> /entrypoint.sh && \
-    echo 'tree /github || echo "no /github folder"' >> /entrypoint.sh && \
+    echo 'tree /github -a || echo "no /github folder"' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 # Set entrypoint to print the details
