@@ -30,6 +30,7 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
     echo 'pwd' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
     echo 'ls -lah ${GITHUB_WORKSPACE}' >> /entrypoint.sh && \
+    echo 'ls -lah /github' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
     echo 'tree . -a' >> /entrypoint.sh && \
     echo 'echo ""' >> /entrypoint.sh && \
